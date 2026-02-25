@@ -143,8 +143,9 @@ python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
+```
 
-🔐 Business Configuration Flow
+## 🔐 Business Configuration Flow
 
 Each business provides:
 
@@ -174,13 +175,14 @@ Multiple clients
 
 Cloud hosting (Render, Railway, VPS, AWS)
 
-👨‍💻 Author
+## 👨‍💻 Author
 
 Sunil Prajapati
 Data Analyst | AI/ML Researcher
 
 Project: SmartChat – Multi-Business AI Chat Platform
 
-⭐ Support
+## ⭐ Support
 
 If this project helps you, please ⭐ star the repository.
+
