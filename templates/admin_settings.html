@@ -1,0 +1,42 @@
+<a href="/admin">← Back to Dashboard</a>
+
+<div class="box">
+<h2>⚙ Chat & Dashboard Settings</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<label>Brand Name</label>
+<input name="brand_name" value="{{ s.brand_name }}">
+
+<label>Greeting Text</label>
+<input name="greeting_text" value="{{ s.greeting_text }}">
+
+<label>Primary Color</label>
+<input type="color" name="primary_color" value="{{ s.primary_color }}">
+
+<label>Font</label>
+<select name="font_family">
+  <option value="Inter, Arial">Inter</option>
+  <option value="Poppins, Arial">Poppins</option>
+  <option value="Roboto, Arial">Roboto</option>
+</select>
+
+<label>Chat Position</label>
+<select name="chat_position">
+  <option value="right">Right</option>
+  <option value="left">Left</option>
+</select>
+
+<label>
+  <input type="checkbox" name="dark_mode" {{ 'checked' if s.dark_mode }}>
+  Dark Mode
+</label>
+
+<label>
+  <input type="checkbox" name="transparent_chat" {{ 'checked' if s.transparent_chat }}>
+  Transparent Chat
+</label>
+
+<button>Save Settings</button>
+</form>
+</div>

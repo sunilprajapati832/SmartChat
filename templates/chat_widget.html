@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ settings.brand_name }}</title>
+
+  <style>
+    :root {
+      --primary: {{ settings.primary_color }};
+      --bg: {{ settings.background_color }};
+      --font: {{ settings.font_family }};
+    }
+  </style>
+
+  <link rel="stylesheet" href="/static/chat.css">
+</head>
+
+<body class="{{ 'dark-page' if settings.dark_mode }}">
+
+<div id="chat-toggle" style="{{ 'left:20px' if settings.chat_position=='left' else 'right:20px' }}">
+  {% if settings.logo_url %}
+    <img src="{{ settings.logo_url }}" width="36">
+  {% else %}
+    🤖
+  {% endif %}
+</div>
+
+<div id="chat-widget" class="{{ 'transparent' if settings.transparent_chat }}">
+  <div id="chat-header">
+    {{ settings.brand_name }}
+    <span id="close-btn">✖</span>
+  </div>
+
+  <div id="messages"></div>
+  <div id="typing-indicator">{{ settings.brand_name }} is typing...</div>
+
+  <input
+    id="chat-input"
+    placeholder="Type your message...">
+</div>
+
+<script>
+  const GREETING_TEXT = `{{ settings.greeting_text }}`;
+</script>
+
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="/static/chat.js"></script>
+</body>
+</html>

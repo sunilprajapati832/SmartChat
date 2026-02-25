@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmartChat Admin Chat Logs</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background: #f5f7fa; }
+        .msg { margin-bottom: 12px; }
+        .visitor { color: #1a73e8; }
+        .bot { color: #188038; }
+    </style>
+</head>
+<body>
+    <h2>SmartChat – Chat Conversations</h2>
+    {% for msg in messages %}
+        <div class="msg {{ msg.sender }}">
+            <strong>{{ msg.sender }}:</strong> {{ msg.content }}
+        </div>
+    {% endfor %}
+</body>
+</html>

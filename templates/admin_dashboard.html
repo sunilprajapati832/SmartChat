@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartChat – Admin Dashboard</title>
+
+    <!-- Google Font (can be dynamic later) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --success: #188038;
+            --danger: #d93025;
+            --bg: #f5f7fa;
+            --card: #ffffff;
+            --text: #202124;
+            --muted: #5f6368;
+            --border: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* ---------- Top Navigation ---------- */
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            background: var(--primary);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.success { background: var(--success); }
+        .btn.danger { background: var(--danger); }
+        .btn.gray { background: #5f6368; }
+
+        /* ---------- Search ---------- */
+        .search-box {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        /* ---------- Cards ---------- */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            font-weight: 500;
+        }
+
+        .card span {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* ---------- Table ---------- */
+        table {
+            width: 100%;
+            background: var(--card);
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f1f3f4;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        select {
+            padding: 6px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        .actions a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+
+        .actions a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- Footer spacing ---------- */
+        .spacer {
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>🤖 SmartChat – Admin Dashboard</h2>
+
+<!-- Navigation -->
+<div class="top-nav">
+    <a href="/admin/qna" class="btn">🧠 QnA</a>
+    <a href="/admin/qna/suggestions" class="btn">⭐ Suggestions</a>
+    <a href="/admin/analytics" class="btn success">📊 Analytics</a>
+    <a href="/admin/settings" class="btn">⚙ Settings</a>
+    <a href="/admin/logout" class="btn danger">Logout</a>
+</div>
+
+<!-- Search -->
+<form method="GET" class="search-box">
+    <input name="search" value="{{ search }}" placeholder="Search by id, text, hot, contacted…">
+    <button class="btn">Search</button>
+</form>
+
+<!-- Analytics Cards -->
+<div class="cards">
+    <div class="card">
+        {{ analytics.total }}
+        <span>Total Leads</span>
+    </div>
+    <div class="card">
+        {{ analytics.new }}
+        <span>New</span>
+    </div>
+    <div class="card">
+        {{ analytics.contacted }}
+        <span>Contacted</span>
+    </div>
+    <div class="card">
+        {{ analytics.closed }}
+        <span>Closed</span>
+    </div>
+</div>
+
+<!-- Leads Table -->
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Session</th>
+        <th>Created</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for lead in leads %}
+    <tr>
+        <td>{{ lead.id }}</td>
+        <td>{{ lead.session_id }}</td>
+        <td>{{ lead.ist_created_at.strftime("%d-%m-%Y %I:%M %p") }}</td>
+
+        <td>
+            <form method="POST" action="/admin/lead/{{ lead.id }}/status">
+                <select name="status" onchange="this.form.submit()">
+                    <option value="New" {{ 'selected' if lead.status=='New' }}>New</option>
+                    <option value="Contacted" {{ 'selected' if lead.status=='Contacted' }}>Contacted</option>
+                    <option value="Closed" {{ 'selected' if lead.status=='Closed' }}>Closed</option>
+                </select>
+            </form>
+        </td>
+
+        <td>
+            <form method="POST" action="/admin/lead/{{ lead.id }}/priority">
+                <select name="priority" onchange="this.form.submit()">
+                    <option value="Hot" {{ 'selected' if lead.priority=='Hot' }}>🔥 Hot</option>
+                    <option value="Warm" {{ 'selected' if lead.priority=='Warm' }}>🌤 Warm</option>
+                    <option value="Cold" {{ 'selected' if lead.priority=='Cold' }}>❄ Cold</option>
+                </select>
+            </form>
+        </td>
+
+        <td class="actions">
+            <a href="/admin/lead/{{ lead.id }}">View</a>
+            <a href="/admin/export/{{ lead.id }}">Export</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="spacer"></div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lead {{ lead.id }} – Chat Timeline</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background: #f5f7fa; }
+        .msg { margin-bottom: 12px; }
+        .visitor { color: #1a73e8; }
+        .bot { color: #188038; }
+        .time { font-size: 12px; color: gray; }
+    </style>
+</head>
+<body>
+
+<h2>Lead #{{ lead.id }}</h2>
+<p>Status: <strong>{{ lead.status }}</strong></p>
+<p>Session: {{ lead.session_id }}</p>
+
+<hr>
+
+{% for msg in messages %}
+<div class="msg {{ msg.sender }}">
+    <strong>{{ msg.sender.capitalize() }}:</strong>
+    {{ msg.content }}
+    <div class="time">
+        {{ msg.ist_timestamp.strftime("%d-%m-%Y %I:%M %p") }}
+    </div>
+</div>
+{% endfor %}
+
+<br>
+<a href="/admin">⬅ Back to Dashboard</a>
+
+</body>
+</html>

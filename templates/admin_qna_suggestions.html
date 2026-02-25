@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Q&A Suggestions – SmartChat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-5">
+    <h2 class="mb-4">🧠 Suggested QnA (From Users)</h2>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Question</th>
+                <th>Asked Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for msg, count in suggestions %}
+            <tr>
+                <td>{{ msg }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endfor %}
+            {% if suggestions|length == 0 %}
+            <tr>
+                <td colspan="2" class="text-center">No suggestions yet</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <a href="/admin/qna" class="btn btn-secondary">Back to Q&A Manager</a>
+</body>
+</html>

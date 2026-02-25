@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics – SmartChat</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial; padding:30px; background:#f5f7fa; }
+        .btn { padding:10px 16px; background:#1a73e8; color:white; text-decoration:none; border-radius:6px; }
+        .cards { display:flex; gap:15px; margin:20px 0; }
+        .card {
+            background:white;
+            padding:16px;
+            border-radius:8px;
+            box-shadow:0 2px 6px rgba(0,0,0,0.1);
+            min-width:160px;
+        }
+        canvas {
+            background:white;
+            padding:15px;
+            border-radius:8px;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>📊 Analytics Dashboard</h2>
+
+<a href="/admin" class="btn">⬅ Back to Dashboard</a>
+
+<!-- 📊 CARDS -->
+<div class="cards">
+    <div class="card">Total Leads<br><b>{{ analytics.total }}</b></div>
+    <div class="card">New<br><b>{{ analytics.new }}</b></div>
+    <div class="card">Contacted<br><b>{{ analytics.contacted }}</b></div>
+    <div class="card">Closed<br><b>{{ analytics.closed }}</b></div>
+    <div class="card">Conversion<br><b>{{ analytics.conversion }}%</b></div>
+</div>
+
+<!-- 📈 DAILY LEADS CHART -->
+<h3>📈 Daily Leads</h3>
+<canvas id="dailyChart"></canvas>
+
+<script>
+const ctx = document.getElementById('dailyChart');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{ dates | tojson }},
+        datasets: [{
+            label: 'Leads per Day',
+            data: {{ counts | tojson }},
+            tension: 0.3,
+            fill: true
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
