@@ -36,8 +36,9 @@ socketio = SocketIO(
     async_mode="gevent"
 )# Changed to gevent
 
-with app.app_context():
-    db.create_all()
+def init_db():
+    with app.app_context():
+        db.create_all()
 
 # ======================================================
 # PUBLIC
