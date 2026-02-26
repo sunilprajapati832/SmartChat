@@ -6,7 +6,6 @@ reportlab
 pytz
 openai
 requests
-gevent
 gunicorn
 SQLAlchemy
 python-dotenv
