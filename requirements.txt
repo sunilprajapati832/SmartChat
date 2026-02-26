@@ -1,7 +1,8 @@
 Flask
 Flask-SQLAlchemy
 Flask-SocketIO
-eventlet
+gevent
+gevent-websocket
 reportlab
 pytz
 openai
