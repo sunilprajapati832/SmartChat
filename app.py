@@ -1,6 +1,3 @@
-import eventlet
-eventlet.monkey_patch()
-
 from functools import wraps
 from datetime import datetime, timedelta
 import uuid
@@ -555,10 +552,3 @@ def admin_settings():
         db.session.commit()
 
     return render_template("admin_settings.html", s=s)
-
-# ======================================================
-# RUN
-# ======================================================
-
-if __name__ == "__main__":
-    socketio.run(app, host="127.0.0.1", port=5000, debug=True)
