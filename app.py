@@ -1,10 +1,6 @@
 import eventlet
 eventlet.monkey_patch()
 
-import gevent
-from gevent import monkey
-monkey.patch_all()
-
 from functools import wraps
 from datetime import datetime, timedelta
 import uuid
@@ -37,7 +33,11 @@ app.config.from_object(Config)
 app.secret_key = app.config.get("SECRET_KEY", "smartchat-secret")
 
 db.init_app(app)
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode="gevent")  # Changed to gevent
+socketio = SocketIO(
+    app,
+    cors_allowed_origins="*",
+    async_mode="eventlet"
+)  # Changed to gevent
 
 with app.app_context():
     db.create_all()
