@@ -33,8 +33,8 @@ db.init_app(app)
 socketio = SocketIO(
     app,
     cors_allowed_origins="*",
-    async_mode="eventlet"
-)  # Changed to gevent
+    async_mode="gevent"
+)# Changed to gevent
 
 with app.app_context():
     db.create_all()
