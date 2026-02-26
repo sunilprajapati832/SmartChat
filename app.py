@@ -29,22 +29,26 @@ from services.chat_engine import get_reply  # Use updated get_reply
 # ======================================================
 
 from flask import Flask
-from config import Config
 from werkzeug.middleware.proxy_fix import ProxyFix
+from config import Config
+import os
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# ✅ REQUIRED FOR RENDER (HTTPS + LOGIN FIX)
+# 🔐 REQUIRED: SECRET KEY (DO NOT SKIP)
+app.secret_key = os.environ.get("SECRET_KEY")
+
+# 🌐 REQUIRED FOR RENDER (HTTPS + LOGIN FIX)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
-# ✅ Session configuration (CRITICAL)
+# 🍪 SESSION CONFIGURATION (CRITICAL FOR LOGIN)
 app.config.update(
-    SESSION_COOKIE_SECURE=True,
-    SESSION_COOKIE_SAMESITE="None",
+    SESSION_COOKIE_SECURE=True,      # HTTPS only (Render)
+    SESSION_COOKIE_SAMESITE="None",  # Required for cross-site cookies
     SESSION_COOKIE_HTTPONLY=True,
+    SESSION_PERMANENT=True
 )
-
 db.init_app(app)
 socketio = SocketIO(
     app,
@@ -52,9 +56,18 @@ socketio = SocketIO(
     async_mode="gevent"
 )# Changed to gevent
 
-def init_db():
-    with app.app_context():
-        db.create_all()
+from models import SuperAdmin
+
+with app.app_context():
+    db.create_all()
+
+    # 🔐 AUTO CREATE SUPER ADMIN (ONLY IF NOT EXISTS)
+    if not SuperAdmin.query.first():
+        sa = SuperAdmin(username="superadmin")
+        sa.set_password(os.environ.get("SUPER_ADMIN_PASSWORD", "Admin@123"))
+        db.session.add(sa)
+        db.session.commit()
+        print("✅ Super Admin auto-created")
 
 # ======================================================
 # PUBLIC
