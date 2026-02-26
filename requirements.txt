@@ -4,10 +4,10 @@ Flask-SocketIO
 gevent
 gevent-websocket
 gunicorn
-SQLAlchemy
-psycopg2-binary
 reportlab
 pytz
 requests
-python-dotenv
 openai
+SQLAlchemy
+python-dotenv
+psycopg2-binary

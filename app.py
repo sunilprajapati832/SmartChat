@@ -1,3 +1,6 @@
+from gevent import monkey
+monkey.patch_all()
+
 from functools import wraps
 from datetime import datetime, timedelta
 import uuid
@@ -25,9 +28,22 @@ from services.chat_engine import get_reply  # Use updated get_reply
 # APP SETUP
 # ======================================================
 
+from flask import Flask
+from config import Config
+from werkzeug.middleware.proxy_fix import ProxyFix
+
 app = Flask(__name__)
 app.config.from_object(Config)
-app.secret_key = app.config.get("SECRET_KEY", "smartchat-secret")
+
+# ✅ REQUIRED FOR RENDER (HTTPS + LOGIN FIX)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+
+# ✅ Session configuration (CRITICAL)
+app.config.update(
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SAMESITE="None",
+    SESSION_COOKIE_HTTPONLY=True,
+)
 
 db.init_app(app)
 socketio = SocketIO(
