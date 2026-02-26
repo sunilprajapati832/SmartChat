@@ -3,10 +3,11 @@ Flask-SQLAlchemy
 Flask-SocketIO
 gevent
 gevent-websocket
-reportlab
-pytz
-openai
-requests
 gunicorn
 SQLAlchemy
+psycopg2-binary
+reportlab
+pytz
+requests
 python-dotenv
+openai
