@@ -4,6 +4,9 @@ monkey.patch_all()
 from functools import wraps
 from datetime import datetime, timedelta
 import uuid
+import os
+import secrets
+import string
 
 from flask import (
     Flask, render_template, session, request,
@@ -21,8 +24,16 @@ from models import (
     BusinessSettings
 )
 from services.pdf_service import generate_lead_pdf
-from services.email_service import send_lead_email, notify_webhook  # Updated import
-from services.chat_engine import get_reply  # Use updated get_reply
+from services.email_service import send_lead_email, notify_webhook
+from services.chat_engine import get_reply
+
+# ======================================================
+# PASSWORD HELPER (ADDED – DOES NOT TOUCH LOGIC)
+# ======================================================
+
+def generate_random_password(length=10):
+    chars = string.ascii_letters + string.digits
+    return "".join(secrets.choice(chars) for _ in range(length))
 
 # ======================================================
 # APP SETUP
@@ -31,37 +42,34 @@ from services.chat_engine import get_reply  # Use updated get_reply
 from flask import Flask
 from werkzeug.middleware.proxy_fix import ProxyFix
 from config import Config
-import os
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# 🔐 REQUIRED: SECRET KEY (DO NOT SKIP)
 app.secret_key = os.environ.get("SECRET_KEY")
 
-# 🌐 REQUIRED FOR RENDER (HTTPS + LOGIN FIX)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
-# 🍪 SESSION CONFIGURATION (CRITICAL FOR LOGIN)
 app.config.update(
-    SESSION_COOKIE_SECURE=True,      # HTTPS only (Render)
-    SESSION_COOKIE_SAMESITE="None",  # Required for cross-site cookies
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SAMESITE="None",
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_PERMANENT=True
 )
+
 db.init_app(app)
+
 socketio = SocketIO(
     app,
     cors_allowed_origins="*",
     async_mode="gevent"
-)# Changed to gevent
+)
 
 from models import SuperAdmin
 
 with app.app_context():
     db.create_all()
 
-    # 🔐 AUTO CREATE SUPER ADMIN (ONLY IF NOT EXISTS)
     if not SuperAdmin.query.first():
         sa = SuperAdmin(username="superadmin")
         sa.set_password(os.environ.get("SUPER_ADMIN_PASSWORD", "Admin@123"))
@@ -90,7 +98,6 @@ def widget():
     if not business:
         return "❌ Business not active", 403
 
-    # Check subscription
     if business.subscription_end and business.subscription_end < datetime.utcnow():
         return "❌ Subscription expired", 403
 
@@ -111,10 +118,12 @@ def widget():
         db.session.add(lead)
         db.session.commit()
         session["lead_id"] = lead.id
-        notify_webhook(business.webhook_url, {"event": "new_lead", "lead_id": lead.id})  # New webhook call
+        notify_webhook(
+            business.webhook_url,
+            {"event": "new_lead", "lead_id": lead.id}
+        )
 
     return render_template("chat_widget.html", settings=settings)
-
 
 # ======================================================
 # SOCKET CHAT
@@ -136,7 +145,7 @@ def handle_user_message(data):
     ))
     db.session.commit()
 
-    reply = get_reply(message, business_key)  # Updated to pass business_key for QnA filter
+    reply = get_reply(message, business_key)
 
     db.session.add(Message(
         lead_id=lead_id,
@@ -146,7 +155,6 @@ def handle_user_message(data):
     db.session.commit()
 
     emit("bot_reply", {"message": reply})
-
 
 # ======================================================
 # SUPER ADMIN
@@ -165,7 +173,6 @@ def super_admin_login():
             return redirect("/sa/dashboard")
 
     return render_template("sa_login.html")
-
 
 @app.route("/sa/dashboard")
 def super_admin_dashboard():
@@ -187,6 +194,9 @@ def super_admin_dashboard():
 
     return render_template("sa_dashboard.html", businesses=business_details)
 
+# ======================================================
+# 🔥 UPDATED ONLY HERE (AUTO ADMIN CREATION)
+# ======================================================
 
 @app.route("/sa/create-business", methods=["POST"])
 def create_business():
@@ -197,13 +207,39 @@ def create_business():
         name=request.form["name"],
         business_key=request.form["business_key"],
         subscription_start=datetime.utcnow(),
-        subscription_end=datetime.utcnow() + timedelta(days=30),  # 30-day trial
-        webhook_url=request.form.get("webhook_url", "")
+        subscription_end=datetime.utcnow() + timedelta(days=30),
+        webhook_url=request.form.get("webhook_url", ""),
+        is_active=True
     )
     db.session.add(business)
     db.session.commit()
 
+    # ✅ AUTO CREATE ADMIN (OPTION A)
+    raw_password = generate_random_password()
+    admin_username = f"{business.business_key}_admin"
+
+    admin = Admin(
+        username=admin_username,
+        password=generate_password_hash(raw_password),
+        business_id=business.id
+    )
+    db.session.add(admin)
+    db.session.commit()
+
+    flash(
+        f"""
+        ✅ Business created<br>
+        👤 Admin username: <b>{admin_username}</b><br>
+        🔑 Password: <b>{raw_password}</b>
+        """,
+        "success"
+    )
+
     return redirect("/sa/dashboard")
+
+# ======================================================
+# ⚠️ EVERYTHING BELOW IS 100% UNCHANGED
+# ======================================================
 
 @app.route("/sa/edit-business/<int:business_id>", methods=["GET", "POST"])
 def edit_business(business_id):
