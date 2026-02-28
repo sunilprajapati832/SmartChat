@@ -1,32 +1,3 @@
-# 🤖 SmartChat – Multi-Business AI Chatbox Platform
-
-SmartChat is a plug-and-play, **multi-tenant AI chatbox system** designed for **any type of business website**, such as:
-
-- 🏢 Real Estate  
-- 🏬 E-commerce  
-- 🏥 Clinics  
-- 🏫 Education  
-- 🏨 Hotels  
-- 🧑‍💼 Service-based businesses  
-
-**UrbanNest** is used only as a **demo / example business** to showcase SmartChat’s real-world implementation.
-
----
-
-## 🌐 What SmartChat Does
-
-SmartChat can be embedded into any business website to:
-
-- Automatically answer customer queries  
-- Capture and manage leads  
-- Export chat conversations as PDF  
-- Email leads to the **respective business admin**  
-- Maintain separate data, branding, and settings per business  
-
-This makes **SmartChat a SaaS-ready product**, not a single-website chatbot.
-
----
-
 ## ✨ Core Features
 
 ### 🧠 AI Chat Widget
@@ -454,5 +425,6 @@ Data Analyst | AI/ML Researcher
 ⭐ Support
 
 If you find this project valuable, please star the repository.
+
 
 
