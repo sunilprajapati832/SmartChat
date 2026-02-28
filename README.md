@@ -45,27 +45,23 @@ SmartChat can be embedded into any business website to:
 - Maintain separate data, branding, and settings per business  
 This makes **SmartChat a SaaS-ready product**, not a single-website chatbot.
 
+## 🏗 Architecture Overview
+### Multi-Tenant SaaS Model (One codebase → Unlimited businesses)
+Each business has:
+- Dedicated Business Admin 
+- Unique business_key
+- Isolated database records
 
-## ✨ Core Features
-
-### 🧠 AI Chat Widget
-- Floating AI chat button  
-- Draggable chat widget & AI icon  
-- Business-specific greetings  
-- Keyword-based automated replies  
-- Typing indicator & real-time chat  
-
-### 🏢 Multi-Business (SaaS Architecture)
-- Unlimited businesses  
-- Each business has:
-  - Unique `business_key`
-  - Separate chats, leads & QnA
-  - Custom branding & settings  
-- One codebase → many businesses  
+Separate:
+- Leads
+- Chats
+- QnA
+- Settings
 
 ### 👤 Role-Based Access
-
 #### 🔑 Super Admin
+- Route: http://smartchat-br63.onrender.com/sa/login
+- Credential logic:    username = "superadmin"    password = os.environ.get("SUPER_ADMIN_PASSWORD", "Admin@123")
 - View & manage all businesses  
 - Add & manage:
   - Business email  
@@ -74,31 +70,43 @@ This makes **SmartChat a SaaS-ready product**, not a single-website chatbot.
 - Monitor global leads & analytics  
 
 #### 🧑‍💼 Business Admin
+- Route: http://smartchat-br63.onrender.com/admin/login
+- Credential logic:    username = "businessadmin"    password = os.environ.get("BUSINESS_ADMIN_PASSWORD", "Business_Admin@123")
 - Login to own dashboard  
 - Manage QnA keywords  
 - View chat history & leads  
 - Receive chat PDFs via email  
 - Customize chat appearance  
 
----
+### ✨ Core Features
+#### 🧠 AI Chat Widget
+- Floating AI chat button  
+- Draggable chat widget & AI icon  
+- Business-specific greetings  
+- Keyword-based automated replies  
+- Typing indicator & real-time chat  
 
-## 📄 Lead & PDF Automation
+#### 🏢 Multi-Business (SaaS Architecture)
+- Unlimited businesses  
+- Each business has:
+  - Unique `business_key`
+  - Separate chats, leads & QnA
+  - Custom branding & settings  
+- One codebase → many businesses  
+
+#### 📄 Lead & PDF Automation
 - Each chat session creates a **Lead**  
 - Messages stored securely in database  
 - Chat history exported as **Unicode-safe PDF**  
 - PDF automatically emailed to the **business admin**  
 - Optional webhook notifications supported  
 
----
-
-## 🖼️ Screenshots (UrbanNest Demo)
-
+### 🖼️ Screenshots (UrbanNest Demo)
 ![SmartChat Widget](screenshots/chat_widget.png)
 ![Business Admin Dashboard](screenshots/admin_dashboard.png)
 ![Chat Conversation PDF](screenshots/chat_pdf.png)
 
 > Screenshots are from the UrbanNest demo, but SmartChat works identically for **any business**.
-
 ---
 
 ## 🛠️ Tech Stack
@@ -207,67 +215,7 @@ If this project helps you, please ⭐ star the repository.
 
 
 
-## 🏗 Architecture Overview
-Multi-Tenant SaaS Model
 
-Each business has:
-
-Unique business_key
-
-Isolated database records
-
-Separate:
-
-Leads
-
-Chats
-
-QnA
-
-Settings
-
-Dedicated Business Admin
-
-One codebase → Unlimited businesses.
-
-👤 Role-Based Access System
-🔑 Super Admin
-
-Route:
-
-/sa/login
-
-Responsibilities:
-
-Create and manage businesses
-
-Configure email & security keys
-
-Monitor system-wide activity
-
-Manage SaaS operations
-
-Credential logic:
-
-username = "superadmin"
-password = os.environ.get("SUPER_ADMIN_PASSWORD", "Admin@123")
-🧑‍💼 Business Admin
-
-Route:
-
-/admin/login
-
-Responsibilities:
-
-Manage QnA keywords
-
-View chat history
-
-View leads
-
-Receive chat PDFs via email
-
-Customize chat experience
 
 ✨ Core Features
 🤖 AI Chat Widget
@@ -427,6 +375,7 @@ Data Analyst | AI/ML Researcher
 ⭐ Support
 
 If you find this project valuable, please star the repository.
+
 
 
 
