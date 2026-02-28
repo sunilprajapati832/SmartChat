@@ -134,6 +134,74 @@ Separate:
 ---
 
 ## 📁 Project Structure
+
+
+SmartChat/
+│             
+├───instance
+│       ├── DataBaseFile
+│       
+├───leads
+│       ├── lead_1.pdf
+│       ├── lead_11.pdf
+│       ├── lead_2.pdf
+│       ├── lead_3.pdf
+│       ├── lead_4.pdf
+│       ├── lead_5.pdf
+│       ├── lead_6.pdf
+│       
+├───services
+│      ├── chat_engine.py
+│      ├── email_service.py
+│      ├── pdf_service.py   
+│           
+├───static
+│      ├── chat.css
+│      ├── chat.js
+│      ├── chatbox.js
+│      ├── widget_loader.js
+│       
+├───templates
+│      ├── admin.html
+│      ├── admin_analytics.html
+│      ├── admin_chat_timeline.html
+│      ├── admin_dashboard.html
+│      ├── admin_login.html
+│      ├── admin_qna.html
+│      ├── admin_qna_suggestions.html
+│      ├── admin_settings.html
+│      ├── chat_widget.html
+│      ├── manage_qna.html
+│      ├── sa_dashboard.html
+│      ├── sa_edit_business.html
+│      ├── sa_login.html
+│      ├── sa_profile.html
+│       
+├─── .gitignore
+├─── app.py
+├─── config.py
+├─── create_super_admin.py
+├─── create_urban_admin.py
+├─── LICENSE
+├─── models.py
+├─── Procfile
+├─── README.md
+├─── requirements.txt
+├─── run.py
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
 SmartChat/
 │── app.py
 │── config.py
@@ -375,6 +443,7 @@ Data Analyst | AI/ML Researcher
 ⭐ Support
 
 If you find this project valuable, please star the repository.
+
 
 
 
