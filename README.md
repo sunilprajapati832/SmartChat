@@ -134,8 +134,6 @@ Separate:
 ---
 
 ## 📁 Project Structure
-
-
 SmartChat/
 │             
 ├───instance
@@ -189,44 +187,6 @@ SmartChat/
 ├─── requirements.txt
 ├─── run.py
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-SmartChat/
-│── app.py
-│── config.py
-│── models.py
-│── requirements.txt
-│
-├── services/
-│ ├── chat_engine.py
-│ ├── email_service.py
-│ ├── pdf_service.py
-│
-├── static/
-│ ├── chat.css
-│ ├── chat.js
-│ ├── widget_loader.js
-│
-├── templates/
-│ ├── chat_widget.html
-│ ├── admin_dashboard.html
-│ └── ...
-│
-└── leads/
-└── lead_1.pdf
-
-
 ---
 
 ## ⚙️ Setup Instructions
@@ -285,32 +245,7 @@ If this project helps you, please ⭐ star the repository.
 
 
 
-✨ Core Features
-🤖 AI Chat Widget
 
-Floating chat button
-
-Draggable interface
-
-Business-specific greeting
-
-Keyword-based automated replies
-
-Real-time chat flow
-
-Session-based lead creation
-
-📄 Lead & PDF Automation
-
-Each chat session generates a Lead
-
-Full conversation stored securely
-
-Unicode-safe PDF generated using ReportLab
-
-PDF automatically emailed to business admin
-
-PDF stored locally under /leads/
 
 📊 Admin Analytics (In Progress Enhancement)
 
@@ -364,40 +299,7 @@ SMTP Email service
 
 Webhook-ready structure
 
-📁 Project Structure
-SmartChat/
-│   app.py
-│   config.py
-│   models.py
-│   run.py
-│   create_super_admin.py
-│   create_urban_admin.py
-│   Procfile
-│   requirements.txt
-│
-├── instance/
-│       chat.db
-│
-├── leads/
-│       lead_1.pdf
-│       ...
-│
-├── services/
-│       chat_engine.py
-│       email_service.py
-│       pdf_service.py
-│
-├── static/
-│       chat.css
-│       chat.js
-│       widget_loader.js
-│
-├── templates/
-│       admin_dashboard.html
-│       admin_login.html
-│       sa_dashboard.html
-│       sa_login.html
-│       chat_widget.html
+
 ⚙️ Local Setup
 git clone https://github.com/YOUR_USERNAME/smartchat.git
 cd smartchat
@@ -435,14 +337,8 @@ Live human-agent takeover
 
 Advanced analytics dashboard
 
-👨‍💻 Author
 
-Sunil Prajapati
-Data Analyst | AI/ML Researcher
 
-⭐ Support
-
-If you find this project valuable, please star the repository.
 
 
 
