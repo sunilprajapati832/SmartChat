@@ -257,6 +257,20 @@ SmartChat is ready for:
 - **Multiple clients**
 Cloud hosting (Render, Railway, VPS, AWS)
 
+## 📊 Admin Analytics (In Progress Enhancement)
+- Chat activity tracking
+- Keyword suggestions
+- Conversation timeline
+- Lead monitoring dashboard
+
+## 🔮 Future Enhancements
+- Website auto-integration system
+- Subscription & billing integration
+- AI-based NLP enhancement
+- Multi-language support
+- Live human-agent takeover
+- Advanced analytics dashboard
+
 ## 👨‍💻 Author
 
 Sunil Prajapati
@@ -267,109 +281,6 @@ Project: SmartChat – Multi-Business AI Chat Platform
 ## ⭐ Support
 
 If this project helps you, please ⭐ star the repository.
-
-
-
-
-
-
-
-📊 Admin Analytics (In Progress Enhancement)
-
-Chat activity tracking
-
-Keyword suggestions
-
-Conversation timeline
-
-Lead monitoring dashboard
-
-🌐 URL Structure
-Route	Purpose
-/	Demo business (UrbanNest)
-/sa/login	Super Admin login
-/sa/dashboard	Super Admin dashboard
-/admin/login	Business Admin login
-/chat/<business_key>	Business chat endpoint
-🛠 Tech Stack
-Backend
-
-Python
-
-Flask
-
-Flask-SQLAlchemy
-
-Flask-SocketIO
-
-Frontend
-
-HTML
-
-CSS (Glassmorphism UI)
-
-JavaScript
-
-Draggable components
-
-Database
-
-SQLite (Development)
-
-PostgreSQL (Production)
-
-Services
-
-ReportLab (PDF generation)
-
-SMTP Email service
-
-Webhook-ready structure
-
-
-⚙️ Local Setup
-git clone https://github.com/YOUR_USERNAME/smartchat.git
-cd smartchat
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python run.py
-🚀 Deployment Ready
-
-Designed for:
-
-Render
-
-Railway
-
-VPS
-
-AWS
-
-SaaS model
-
-Subscription-based scaling
-
-🔮 Future Enhancements
-
-Website auto-integration system
-
-Subscription & billing integration
-
-AI-based NLP enhancement
-
-Multi-language support
-
-Live human-agent takeover
-
-Advanced analytics dashboard
-
-
-
-
-
-
-
 
 
 
