@@ -240,33 +240,21 @@ python app.py
 ```
 
 ## 🔐 Business Configuration Flow
-
-Each business provides:
-
-📧 Business Email (for lead PDFs)
-
-🔑 Security Key
-
-🌍 Business Website URL
+### Each business provides:
+- **Business Email (for lead PDFs)**
+- **Security Key**
+- **Business Website URL**
 
 These are:
+- **Managed by Super Admin**
+- **Used for email + webhook delivery**
+- **Fully isolated per business**
 
-Managed by Super Admin
-
-Used for email + webhook delivery
-
-Fully isolated per business
-
-🚀 Production Ready
-
+## Production Ready
 SmartChat is ready for:
-
-SaaS deployment
-
-Subscription-based model
-
-Multiple clients
-
+- **SaaS deployment**
+- **Subscription-based model**
+- **Multiple clients**
 Cloud hosting (Render, Railway, VPS, AWS)
 
 ## 👨‍💻 Author
@@ -375,6 +363,7 @@ Multi-language support
 Live human-agent takeover
 
 Advanced analytics dashboard
+
 
 
 
