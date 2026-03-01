@@ -10,7 +10,6 @@ SmartChat is a plug-and-play, **multi-tenant AI chatbox system** designed for **
 Built with scalability in mind, SmartChat allows multiple businesses to operate independently from a single codebase, making it ideal for SaaS deployment.
 
 ## 🌟 The Story Behind SmartChat
-
 SmartChat was born from a real-world problem. While developing UrbanNest, a real estate platform where users can buy, sell and rent properties seamlessly, one major challenge became evident: 
 When customers had questions — technical or business-related — they had to wait for an admin response. 
 This delay negatively impacted user experience. I explored existing chat solutions in the market and observed:
@@ -51,7 +50,6 @@ Each business has:
 - Dedicated Business Admin 
 - Unique business_key
 - Isolated database records
-
 Separate:
 - Leads
 - Chats
@@ -110,7 +108,7 @@ Separate:
 
 ## 🛠 Tech Stack & Development Environment
 SmartChat is built using a modular, scalable, and production-oriented technology stack.
-### 🔹 Backend Architecture
+### Backend Architecture
 - **Python (Flask)**
 Lightweight WSGI framework used to build RESTful routes, role-based authentication, and multi-tenant business logic.
 
@@ -123,7 +121,7 @@ Enables real-time, event-driven communication architecture (chat-ready infrastru
 - **Gunicorn (Production WSGI Server)**
 Used for deploying the Flask application in production environments.
 
-### 🔹 Frontend Layer
+### Frontend Layer
 - **HTML5, CSS3, Vanilla JavaScript**
 Used to build a lightweight, embeddable chat widget and admin dashboards.
 
@@ -136,14 +134,14 @@ Implemented using JavaScript DOM event handling for improved UX.
 - **Script-Based Widget Injection**
 Allows external website embedding using minimal integration code.
 
-### 🔹 Database Layer
+### Database Layer
 - **SQLite (Development Environment)**
 Lightweight relational database used for rapid development and local testing.
 
 - **PostgreSQL (Production Recommended)**
 Scalable, production-grade relational database for SaaS deployment.
 
-### 🔹 Document & Communication Services
+### Document & Communication Services
 - **ReportLab**
 Used for Unicode-safe PDF generation of chat transcripts and lead reports.
 
@@ -153,7 +151,7 @@ Automated email delivery system for sending lead PDFs to Business Admins.
 - **Webhook-Ready Architecture**
 Extensible event-driven hooks for future third-party integrations.
 
-### 🔹 DevOps & Deployment
+### DevOps & Deployment
 - **Render**
 Cloud platform used for live deployment and staging environment.
 
@@ -163,14 +161,14 @@ Secure credential management using .env or cloud environment variables.
 - **Procfile-Based Deployment Strategy**
 Gunicorn process management for production serving.
 
-### 🔹 Development Environment
+### Development Environment
 - **PyCharm IDE**
 Primary development environment for backend implementation and debugging.
 
 - **Git & GitHub**
 Version control, source management, and repository hosting.
 
-### 🔹 AI-Assisted Development
+### AI-Assisted Development
 During development, modern AI-assisted coding tools were leveraged for optimization, debugging, and architectural refinement:
 - **ChatGPT**
 - **GitHub Copilot**
@@ -377,6 +375,7 @@ Multi-language support
 Live human-agent takeover
 
 Advanced analytics dashboard
+
 
 
 
