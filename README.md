@@ -107,31 +107,75 @@ Separate:
 ![Chat Conversation PDF](screenshots/chat_pdf.png)
 
 > Screenshots are from the UrbanNest demo, but SmartChat works identically for **any business**.
----
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack & Development Environment
+SmartChat is built using a modular, scalable, and production-oriented technology stack.
+### 🔹 Backend Architecture
+- **Python (Flask)**
+Lightweight WSGI framework used to build RESTful routes, role-based authentication, and multi-tenant business logic.
 
-### Backend
-- Python (Flask)  
-- Flask-SQLAlchemy  
-- Flask-SocketIO  
+- **Flask-SQLAlchemy**
+ORM layer for database modeling, relationship mapping, and query abstraction.
 
-### Frontend
-- HTML, CSS, JavaScript  
-- Glassmorphism UI  
-- Drag & drop interactions  
+- **Flask-SocketIO**
+Enables real-time, event-driven communication architecture (chat-ready infrastructure).
 
-### Database
-- SQLite (Development)  
-- PostgreSQL (Production)  
+- **Gunicorn (Production WSGI Server)**
+Used for deploying the Flask application in production environments.
 
-### Other
-- ReportLab (PDF generation)  
-- SMTP Email  
-- Webhooks  
-- Git & GitHub  
+### 🔹 Frontend Layer
+- **HTML5, CSS3, Vanilla JavaScript**
+Used to build a lightweight, embeddable chat widget and admin dashboards.
 
----
+- **Glassmorphism UI Design**
+Modern UI styling approach for visual clarity and clean user experience.
+
+- **Draggable / Drag-and-Drop Interactions**
+Implemented using JavaScript DOM event handling for improved UX.
+
+- **Script-Based Widget Injection**
+Allows external website embedding using minimal integration code.
+
+### 🔹 Database Layer
+- **SQLite (Development Environment)**
+Lightweight relational database used for rapid development and local testing.
+
+- **PostgreSQL (Production Recommended)**
+Scalable, production-grade relational database for SaaS deployment.
+
+### 🔹 Document & Communication Services
+- **ReportLab**
+Used for Unicode-safe PDF generation of chat transcripts and lead reports.
+
+- **SMTP (Simple Mail Transfer Protocol)**
+Automated email delivery system for sending lead PDFs to Business Admins.
+
+- **Webhook-Ready Architecture**
+Extensible event-driven hooks for future third-party integrations.
+
+### 🔹 DevOps & Deployment
+- **Render**
+Cloud platform used for live deployment and staging environment.
+
+- **Environment Variables Configuration**
+Secure credential management using .env or cloud environment variables.
+
+- **Procfile-Based Deployment Strategy**
+Gunicorn process management for production serving.
+
+### 🔹 Development Environment
+- **PyCharm IDE**
+Primary development environment for backend implementation and debugging.
+
+- **Git & GitHub**
+Version control, source management, and repository hosting.
+
+### 🔹 AI-Assisted Development
+During development, modern AI-assisted coding tools were leveraged for optimization, debugging, and architectural refinement:
+- **ChatGPT**
+- **GitHub Copilot**
+- **Grok**
+These tools were used as productivity enhancers — not as code generators — ensuring architectural ownership and implementation control remained manual.
 
 ## 📁 Project Structure
 SmartChat/
@@ -187,12 +231,9 @@ SmartChat/
 ├─── requirements.txt
 ├─── run.py
         
----
-
 ## ⚙️ Setup Instructions
-
 ```bash
-git clone https://github.com/YOUR_USERNAME/smartchat.git
+git clone https://github.com/sunilprajapati832/smartchat.git
 cd smartchat
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
@@ -336,6 +377,7 @@ Multi-language support
 Live human-agent takeover
 
 Advanced analytics dashboard
+
 
 
 
