@@ -271,12 +271,12 @@ Cloud hosting (Render, Railway, VPS, AWS)
 
 ## 👨‍💻 Author
 
-Sunil Prajapati
-Data Analyst | AI/ML Researcher
+**Sunil Prajapati**<br>
 
-Project: SmartChat – Multi-Business AI Chat Platform
+M.E. Graduate | Python & Flask Developer <br>
 
-## ⭐ Support
-If this project helps you, please ⭐ star the repository.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow%20Me-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/sunil-prajapati832)
 
+---
 
+⭐ If you find this project valuable, feel free to star the repository and connect!
