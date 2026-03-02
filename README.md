@@ -279,10 +279,4 @@ Data Analyst | AI/ML Researcher
 Project: SmartChat – Multi-Business AI Chat Platform
 
 ## ⭐ Support
-
 If this project helps you, please ⭐ star the repository.
-
-
-
-
-
