@@ -244,11 +244,10 @@ python app.py
 - **Business Email (for lead PDFs)**
 - **Security Key**
 - **Business Website URL**
-
-These are:
-- **Managed by Super Admin**
-- **Used for email + webhook delivery**
-- **Fully isolated per business**
+  These are:
+    - **Managed by Super Admin**
+    - **Used for email + webhook delivery**
+    - **Fully isolated per business**
 
 ## Production Ready
 SmartChat is ready for:
@@ -280,3 +279,4 @@ Project: SmartChat – Multi-Business AI Chat Platform
 
 ## ⭐ Support
 If this project helps you, please ⭐ star the repository.
+
