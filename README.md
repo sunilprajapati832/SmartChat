@@ -277,6 +277,5 @@ M.E. Graduate | Python & Flask Developer <br>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow%20Me-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/sunil-prajapati832)
 
----
-
+---
 ⭐ If you find this project valuable, feel free to star the repository and connect!
