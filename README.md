@@ -101,9 +101,7 @@ Separate:
 - Optional webhook notifications supported  
 
 ### 🖼️ Screenshots (UrbanNest Demo)
-![SmartChat Widget](screenshots/chat_widget.png)
-![Business Admin Dashboard](screenshots/admin_dashboard.png)
-![Chat Conversation PDF](screenshots/chat_pdf.png)
+![SmartChat Widget](WebsiteView/SA_Dashboard_1.png)
 
 > Screenshots are from the UrbanNest demo, but SmartChat works identically for **any business**.
 
@@ -279,3 +277,4 @@ M.E. Graduate | Python & Flask Developer <br>
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow%20Me-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/sunil-prajapati832)
 
 ⭐ If you find this project valuable, feel free to star the repository and connect!
+
