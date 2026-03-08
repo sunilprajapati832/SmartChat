@@ -102,6 +102,7 @@ Separate:
 
 ### 🖼️ Screenshots (UrbanNest Demo)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_1.png)
+![SmartChat Widget](WebsiteView/SA_Dashboard_2.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_Login.png)
 
 > Screenshots are from the UrbanNest demo, but SmartChat works identically for **any business**.
@@ -278,5 +279,6 @@ M.E. Graduate | Python & Flask Developer <br>
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow%20Me-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/sunil-prajapati832)
 
 ⭐ If you find this project valuable, feel free to star the repository and connect!
+
 
 
