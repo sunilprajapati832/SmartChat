@@ -1,5 +1,5 @@
 # 🤖 SmartChat – Multi-Business AI Chatbox SaaS Platform
-SmartChat is a plug-and-play, **multi-tenant AI chatbox system** designed for **any type of business website**, 
+SmartChat is a plug-and-play, **multi-tenant AI chatbox system** designed for **any type of business website** 
 such as:
 - 🏢 Real Estate  
 - 🏬 E-commerce  
