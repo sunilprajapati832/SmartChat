@@ -104,6 +104,7 @@ Separate:
 ![SmartChat Widget](WebsiteView/SA_Dashboard_Black.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_chatbox_left.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_chatbox_right.png)
+![SmartChat Widget](WebsiteView/SA_Dashboard_white.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_1.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_2.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_Login.png)
@@ -282,6 +283,7 @@ M.E. Graduate | Python & Flask Developer <br>
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow%20Me-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/sunil-prajapati832)
 
 ⭐ If you find this project valuable, feel free to star the repository and connect!
+
 
 
 
