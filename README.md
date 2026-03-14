@@ -105,6 +105,7 @@ Separate:
 ![SmartChat Widget](WebsiteView/SA_Dashboard_chatbox_left.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_chatbox_right.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_white.png)
+![SmartChat Widget](WebsiteView/SA_Dashboard_white_chatbox1.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_1.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_2.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_Login.png)
