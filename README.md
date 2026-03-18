@@ -111,6 +111,7 @@ Separate:
 ![SmartChat Widget](WebsiteView/SA_Dashboard_2.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_Login.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_Business_Admin_Page.png)
+![SmartChat Widget](WebsiteView/QnA_BusinessAdmin.png)
 
 
 > Screenshots are from the UrbanNest demo, but SmartChat works identically for **any business**.
