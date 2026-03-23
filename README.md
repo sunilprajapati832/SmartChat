@@ -190,6 +190,7 @@ During development, modern AI-assisted coding tools were leveraged for optimizat
 These tools were used as productivity enhancers — not as code generators — ensuring architectural ownership and implementation control remained manual.
 
 ## 📁 Project Structure
+```bash
 SmartChat/
 │             
 ├───instance
@@ -242,7 +243,8 @@ SmartChat/
 ├─── README.md
 ├─── requirements.txt
 ├─── run.py
-        
+```
+       
 ## ⚙️ Setup Instructions
 ```bash
 git clone https://github.com/sunilprajapati832/smartchat.git
