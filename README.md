@@ -10,6 +10,8 @@ such as:
 **UrbanNest** is used only as a **demo / example business** to showcase SmartChat’s real-world implementation.
 Built with scalability in mind, SmartChat allows multiple businesses to operate independently from a single codebase, making it ideal for SaaS deployment.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Now-blue?style=for-the-badge)]([bannest](https://smartchat-br63.onrender.com/widget?business=urbannest)
+
 ## 🌟 The Story Behind SmartChat
 SmartChat was born from a real-world problem. While developing UrbanNest, a real estate platform where users can buy, sell and rent properties seamlessly, one major challenge became evident: 
 When customers had questions — technical or business-related — they had to wait for an admin response. 
