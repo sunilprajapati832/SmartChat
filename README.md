@@ -63,6 +63,7 @@ Separate:
 #### 🔑 Super Admin
 - Route: http://smartchat-br63.onrender.com/sa/login
 - Credential logic:    username = "superadmin"    password = os.environ.get("SUPER_ADMIN_PASSWORD", "Admin@123")
+- For Example : Username: "superadmin", Password: "ChangeMe@123"
 - View & manage all businesses  
 - Add & manage:
   - Business email  
@@ -73,6 +74,7 @@ Separate:
 #### 🧑‍💼 Business Admin
 - Route: http://smartchat-br63.onrender.com/admin/login
 - Credential logic:    username = "businessadmin"    password = os.environ.get("BUSINESS_ADMIN_PASSWORD", "Business_Admin@123")
+- For Example: Username: "urbannest_admin"    password:  "RgMjoeETYp"
 - Login to own dashboard  
 - Manage QnA keywords  
 - View chat history & leads  
