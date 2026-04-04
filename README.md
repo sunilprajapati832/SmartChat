@@ -125,7 +125,7 @@ Separate:
 ![SmartChat Widget](WebsiteView/AdminDashboard_lead_showing.png)
 ![SmartChat Widget](WebsiteView/BusinessEdit_option.png)
 ![SmartChat Widget](WebsiteView/renewed_subscription.png)
-
+![SmartChat Widget](WebsiteView/Lead.png)
 > Screenshots are from the UrbanNest demo, but SmartChat works identically for **any business**.
 
 ## 🛠 Tech Stack & Development Environment
