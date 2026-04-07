@@ -123,7 +123,6 @@ Separate:
 ![SmartChat Widget](WebsiteView/Analytics_BusinessAdmin.png)
 ![SmartChat Widget](WebsiteView/Settings_BusinessAdmin.png)
 ![SmartChat Widget](WebsiteView/Business_admin_lead_generation.png)
-![SmartChat Widget](WebsiteView/AdminDashboard_lead_showing.png)
 ![SmartChat Widget](WebsiteView/Lead.png)
 ![SmartChat Widget](WebsiteView/renewed_subscription.png)
 
