@@ -109,6 +109,7 @@ Separate:
 ![SmartChat Widget](WebsiteView/SA_Dashboard_2.png)
 ![SmartChat Widget](WebsiteView/Business_not_active.png)
 ![SmartChat Widget](WebsiteView/BusinessEdit_option.png)
+![SmartChat Widget](WebsiteView/SA_after.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_Black.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_chatbox_left.png)
 ![SmartChat Widget](WebsiteView/SA_Dashboard_chatbox_right.png)
@@ -125,7 +126,7 @@ Separate:
 ![SmartChat Widget](WebsiteView/AdminDashboard_lead_showing.png)
 ![SmartChat Widget](WebsiteView/Lead.png)
 ![SmartChat Widget](WebsiteView/renewed_subscription.png)
-![SmartChat Widget](WebsiteView/SA_after.png)
+
 > Screenshots are from the UrbanNest demo, but SmartChat works identically for **any business**.
 
 ## 🛠 Tech Stack & Development Environment
